@@ -1,14 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:crm="http://www.cidoc-crm.org/cidoc-crm/" xml:lang="en" xml:base="http://www.cidoc-crm.org/cidoc-crm/">
   <!--
 CIDOC CRM v7.1.1 (draft) implemented in RDFS
 
 This is the implementation approved by CRM-SIG in the meeting {{pending for approval}}
 as the current RDFS version for the CIDOC CRM namespace.
 Note that this is NOT a definition of the CIDOC CRM, but a CIDOC CRM compatible implementation
-of an RDF Schema derived from the authoritative release of the CIDOC CRM v7.1.1 May 2021 on 
+of an RDF Schema derived from the authoritative release of the CIDOC CRM v7.1.1 May 2021 on
 http://cidoc-crm.org/Version/version-7.1.1 by an automated algorithm. It is intended for an
-assumed majority of uses. Depending on the application, users may create adequate extensions 
+assumed majority of uses. Depending on the application, users may create adequate extensions
 compatible with the logical definitions of the CIDOC CRM.
 
 Created by FORTH-ICS Friday August 13, 2021
@@ -23,7 +22,7 @@ Encoding Rules:
    For instance "P2 has type (is type of)" is represented as:
    "P2_has_type" for the domain to range direction and "P2i_is_type_of" for the range to domain direction.
 
-3. The primitive values "E60 Number", "E61 Time Primitive", "E62 String", "E94 Space Primitive" and 
+3. The primitive values "E60 Number", "E61 Time Primitive", "E62 String", "E94 Space Primitive" and
    "E95 Spacetime Primitive" referred in the Model for formal completeness are interpreted as rdfs:literal.
 
 4. RDF does not support properties of properties, therefore, users may create their own
@@ -37,18 +36,18 @@ Encoding Rules:
 
 5. Scope notes are represented as <rdfs:comment> elements.
 
-6. In addition this encoding contains labels in languages different from English, 
-   which are taken from translations of previous versions of the CIDOC CRM.    
+6. In addition this encoding contains labels in languages different from English,
+   which are taken from translations of previous versions of the CIDOC CRM.
 
-7. Any other differences in labels, scope notes  and semantic relationships of this encoding 
-   to the authoritative definition of the CIDOC CRM v.7.1.1 (May 2021) are not intended transfer errors. 
+7. Any other differences in labels, scope notes  and semantic relationships of this encoding
+   to the authoritative definition of the CIDOC CRM v.7.1.1 (May 2021) are not intended transfer errors.
    FORTH appreciates your feed-back on such errors.
 
 8. CRM time extension 1.0 Encoded in RDFS (http://old.cidoc-crm.org/docs/How_to%20implement%20CRM_Time_in%20RDF.pdf)
    Since the Time Primitive of the CRM can not directly be implemented in RDF Triple Stores, we define in this extension
-   of 4 properties replacing P81 and P82 adequately using xsd:dateTime. 
-   Property P81 is dedicated for modeling the Time-Span's maximum known temporal extent i.e. ongoing_throughout. 
-   Property P82 is for modeling the minimum outer bounds of events i.e. at_some_time_within. 
+   of 4 properties replacing P81 and P82 adequately using xsd:dateTime.
+   Property P81 is dedicated for modeling the Time-Span's maximum known temporal extent i.e. ongoing_throughout.
+   Property P82 is for modeling the minimum outer bounds of events i.e. at_some_time_within.
    P81 has its time interval redefined by P81a and P81b. Similarly, we redefine P82 by P82a and P82b.
 
 -->
