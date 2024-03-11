@@ -1,9 +1,9 @@
 {
-  "base": "cidoc_crm_v7.1.1.xml",
-  "base_name": "CIDOC CRM v7.1.1",
+  "base": "CIDOC_CRM_v7.1.2.rdf",
+  "base_name": "CIDOC CRM v7.1.2",
   "extensions": [
-      "CRMsci_v1.2.3.rdfs.xml",
-      "CRMarchaeo_v1.4.rdfs.xml",
+      "CRMsci_v2.0.rdf",
+      "CRMarchaeo_v2.0.rdf",
       "CRMgeo_v1.2.rdfs.xml",
       "CRMdig_v3.2.1.rdfs.xml",
       "CRMinf_v0.7.rdfs.xml"
