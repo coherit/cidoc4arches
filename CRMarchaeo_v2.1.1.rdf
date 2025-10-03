@@ -1,15 +1,15 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
   <!--
-RDFs implementation of CRMarchaeo v2.0 July, 2023 (https://www.cidoc-crm.org/crmarchaeo/ModelVersion/crmarchaeo-version-2.0).
+RDFs implementation of CRMarchaeo v2.1.1 April, 2024 (https://www.cidoc-crm.org/crmarchaeo/ModelVersion/version-2.1.1).
 
-Created by FORTH-ICS - February, 2024
+Created by FORTH-ICS - June, 2024
 CC BY 4.0 https://creativecommons.org/licenses/by/4.0/legalcode
 
 -->
   <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmarchaeo/">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
-    <owl:versionInfo xml:lang="en">CRMarchaeo 2.0 (July, 2023) including references to CIDOC-CRM 7.1.2 and CRMsci 2.0</owl:versionInfo>
+    <owl:versionInfo xml:lang="en">CRMarchaeo 2.1.1 (April, 2024) including references to CIDOC-CRM 7.1.2 and CRMsci 2.0</owl:versionInfo>
     <rdfs:comment xml:lang="en">CRMarchaeo is an extension of CIDOC CRM created to support the archaeological excavation process and all the various entities and activities related to it. The model has been created starting from standards and models already in use by national and international cultural heritage institutions, and has evolved through deep analysis of existing metadata from real archaeological documentation. It has been enriched by continuous collaboration with various communities of archaeologists from different countries and schools. Furthermore, it takes advantage of the concepts provided by CRMsci, from which it inherits most of the geological and stratigraphic principles that govern archaeological stratigraphy, extending these principles.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmarchaeo/A1_Excavation_Processing_Unit">
@@ -30,7 +30,7 @@ CC BY 4.0 https://creativecommons.org/licenses/by/4.0/legalcode
   <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmarchaeo/A3_Stratigraphic_Interface">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <rdfs:label xml:lang="en">Stratigraphic Interface</rdfs:label>
-    <rdfs:comment xml:lang="en">This class comprises instances of A8 Stratigraphic Unit, which are coherent parts of a boundary surface that appear as the result of a stratigraphic genesis event or process. The interface marks the limit of the geometric extent of the effect of a genesis or modification event, and indicates in particular where the effect of this event ended. Each event of creation or destruction of a deposition layer implies the creation of new interfaces. Thus, there are two main types of interface: those that are surfaces of strata (that can be directly related to the corresponding stratum via the AP12 confines property), and those that are only surfaces, formed by the removal or destruction of existing stratifications.</rdfs:comment>
+    <rdfs:comment xml:lang="en">This class comprises instances of A8 Stratigraphic Unit, which are coherent parts of a boundary surface that appear as the result of a stratigraphic genesis event or process. The interface marks the limit of the geometric extent of the effect of a genesis or modification event, and indicates in particular where the effect of this event ended. Each event of creation or destruction of a deposition layer implies the creation of new interfaces. Thus, there are two main types of interfaces: those that are surfaces of strata (that can be directly related to the corresponding stratum via the AP12 confines property), and those that are only surfaces, formed by the removal or destruction of existing stratifications.</rdfs:comment>
     <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/extensions/crmarchaeo/A8_Stratigraphic_Unit"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmarchaeo/A4_Stratigraphic_Genesis">
@@ -202,6 +202,7 @@ CC BY 4.0 https://creativecommons.org/licenses/by/4.0/legalcode
     <rdfs:comment xml:lang="en">This property identifies an A8 Stratigraphic Unit that was disturbed through an A5 Stratigraphic Modification. One A5 Stratigraphic Modification may disturb several A8 Stratigraphic Units.</rdfs:comment>
     <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmarchaeo/A5_Stratigraphic_Modification"/>
     <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmarchaeo/A8_Stratigraphic_Unit"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/extensions/crmsci/O18_altered"/>
     <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmarchaeo/AP8i_was_disturbed_by"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmarchaeo/AP8i_was_disturbed_by">
@@ -209,6 +210,7 @@ CC BY 4.0 https://creativecommons.org/licenses/by/4.0/legalcode
     <rdfs:label xml:lang="en">was disturbed by</rdfs:label>
     <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmarchaeo/A8_Stratigraphic_Unit"/>
     <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmarchaeo/A5_Stratigraphic_Modification"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/extensions/crmsci/O18i_was_altered_by"/>
     <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmarchaeo/AP8_disturbed"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmarchaeo/AP9_took_matter_from">
@@ -231,7 +233,7 @@ CC BY 4.0 https://creativecommons.org/licenses/by/4.0/legalcode
   <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmarchaeo/AP10_destroyed">
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:label xml:lang="en">destroyed</rdfs:label>
-    <rdfs:comment xml:lang="en">This property identifies the S22 Segment of Matter that was destroyed through an A1 Excavation Processing Unit. The spatial extent of the instance of S22 Segment of Matter is defined by the extent of the spatial 3 dimensional projection of the A1 Excavation Processing Unit. Depending on the granularity of the documented instance of A1 Excavation Processing Unit, different instances of S22 Segment of Matter may be identified by the A10 property.</rdfs:comment>
+    <rdfs:comment xml:lang="en">This property identifies the S22 Segment of Matter that was destroyed through an A1 Excavation Processing Unit. The spatial extent of the instance of S22 Segment of Matter is defined by the extent of the spatial 3-dimensional projection of the A1 Excavation Processing Unit. Depending on the granularity of the documented instance of A1 Excavation Processing Unit, different instances of S22 Segment of Matter may be identified by the A10 property.</rdfs:comment>
     <rdfs:domain rdf:resource="http://www.cidoc-crm.org/extensions/crmarchaeo/A1_Excavation_Processing_Unit"/>
     <rdfs:range rdf:resource="http://www.cidoc-crm.org/extensions/crmsci/S22_Segment_of_Matter"/>
     <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P93_took_out_of_existence"/>
@@ -389,7 +391,7 @@ CC BY 4.0 https://creativecommons.org/licenses/by/4.0/legalcode
   <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmarchaeo/AP22_is_equal_in_time_to">
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:label xml:lang="en">is equal in time to</rdfs:label>
-    <rdfs:comment xml:lang="en">This property symmetrically identifies a situation in which the starting point and the ending point for an instance of E2 Temporal Entity is equal to the starting point and the ending point respectively of another instance of E2 Temporal Entity This property is only necessary if the time span is unknown (otherwise the equivalence can be calculated). This property is the same as the "equal" relationship of Allen’s temporal logic (Allen, 1983, pp. 832-843). This property is transitive.</rdfs:comment>
+    <rdfs:comment xml:lang="en">This property symmetrically identifies a situation in which the starting point and the ending point for an instance of E2 Temporal Entity is equal to the starting point and the ending point of another instance of E2 Temporal Entity, respectively. This property is only necessary if the time span is unknown (otherwise the equivalence can be calculated). This property is the same as the "equal" relationship of Allen’s temporal logic (Allen, 1983, pp. 832-843). This property is transitive.</rdfs:comment>
     <rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E2_Temporal_Entity"/>
     <rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E2_Temporal_Entity"/>
     <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P175_starts_before_or_with_the_start_of"/>
@@ -501,7 +503,7 @@ CC BY 4.0 https://creativecommons.org/licenses/by/4.0/legalcode
   <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmarchaeo/AP28_occurs_before">
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:label xml:lang="en">occurs before</rdfs:label>
-    <rdfs:comment xml:lang="en">This property identifies the relative chronological sequence of two temporal entities. It implies that a temporal gap exists between the end of A and the start of B. This property is only necessary if the relevant time spans are unknown (otherwise the relationship can be calculated). This property is the same as the "before / after" relationships of Allen’s temporal logic (Allen, 1983, pp. 832-843). This property is transitive.</rdfs:comment>
+    <rdfs:comment xml:lang="en">This property identifies the relative chronological sequence of two temporal entities. It implies that a temporal gap exists between the end of A and the start of B. This property is only necessary if the relevant time spans are unknown (otherwise the relationship can be calculated). This property is the same as the "before / after" relationships of Allen’s temporal logic(Allen, 1983). This property is transitive.</rdfs:comment>
     <rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E2_Temporal_Entity"/>
     <rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E2_Temporal_Entity"/>
     <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P183_ends_before_the_start_of"/>
@@ -518,25 +520,51 @@ CC BY 4.0 https://creativecommons.org/licenses/by/4.0/legalcode
   <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmarchaeo/AP29_appears_in">
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:label xml:lang="en">appears in</rdfs:label>
-    <rdfs:comment xml:lang="en">Scope note: This property associates a kind of object (documented as an instance of E55 Type) with an instance of E4 Period indicating that objects of this kind have been brought into existence during this period. The genesis of such objects may be the result of human, biological, geological or other processes. This property makes a weak statement about the distribution of the associated object kind in the archaeological record: that is, if the genesis of an object of the type can plausibly be assumed to fall within the genesis of the context within which it was found, then this property supports reasoning, ceteris paribus, that the genesis period of the context forms part of, or overlaps with, one of the instances of E4 Period in which the respective object type has appeared. Such weak statements may also be useful in the context of geological or paleontological observations. Stronger claims can be made using the properties AP30 restricted to and AP31 typical for .</rdfs:comment>
+    <rdfs:comment xml:lang="en">This property associates a kind of object (documented as an instance of E55 Type) with an instance of E4 Period indicating that objects of this kind have been brought into existence during this period. The genesis of such objects may be the result of human, biological, geological or other processes. This property makes a weak statement about the distribution of the associated object kind in the archaeological record: that is, if the genesis of an object of the type can plausibly be assumed to fall within the genesis of the context within which it was found, then this property supports reasoning, ceteris paribus, that the genesis period of the context forms part of, or overlaps with, one of the instances of E4 Period in which the respective object type has appeared. Such weak statements may also be useful in the context of geological or paleontological observations. Stronger claims can be made using the properties AP30 restricted to and AP31 typical for .</rdfs:comment>
     <rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
     <rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E4_Period"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmarchaeo/AP29i_has_appearing_type"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmarchaeo/AP29i_has_appearing_type">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">has appearing type</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E4_Period"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmarchaeo/AP29_appears_in"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmarchaeo/AP30_restricted_to">
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:label xml:lang="en">restricted to</rdfs:label>
-    <rdfs:comment xml:lang="en">Scope note: This property associates a kind of object (documented as an instance of E55 Type) with an instance of E4 Period indicating that objects of this kind have been generated exclusively in this period. This property makes a strong statement concerning the distribution of the associated object kind in the observed record: If the genesis of an object of this type can plausibly be assumed to fall within the genesis of the context in which it was found, then the statement made with this property would support reasoning, ceteris paribus , that the genesis period of the find context actually forms part of the related instance of E4 Period, or at least overlaps with it. In contrast, objects from previous periods may appear in a context because they are still in use, and objects from later periods may have been displaced into an older context. Weaker claims can be made using the properties AP29 appears in and AP31 typical for .</rdfs:comment>
+    <rdfs:comment xml:lang="en">This property associates a kind of object (documented as an instance of E55 Type) with an instance of E4 Period indicating that objects of this kind have been generated exclusively in this period. This property makes a strong statement concerning the distribution of the associated object kind in the observed record: If the genesis of an object of this type can plausibly be assumed to fall within the genesis of the context in which it was found, then the statement made with this property would support reasoning, ceteris paribus , that the genesis period of the find context actually forms part of the related instance of E4 Period, or at least overlaps with it. In contrast, objects from previous periods may appear in a context because they are still in use, and objects from later periods may have been displaced into an older context. Weaker claims can be made using the properties AP29 appears in (gas appearing type) and AP31 typical for (has typical type) .</rdfs:comment>
     <rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
     <rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E4_Period"/>
     <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/extensions/crmarchaeo/AP29_appears_in"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmarchaeo/AP30i_restricts_appearance_of"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmarchaeo/AP30i_restricts_appearance_of">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">restricts appearance of</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E4_Period"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/extensions/crmarchaeo/AP29i_has_appearing_type"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmarchaeo/AP30_restricted_to"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmarchaeo/AP31_typical_for">
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:label xml:lang="en">typical for</rdfs:label>
-    <rdfs:comment xml:lang="en">This property associates a kind of object (documented as an instance of E55 Type) with an instance of E4 Period indicating that objects of this kind have been generated in this period in significantly greater numbers and in wider distributions, than in other periods. This property makes a moderate statement concerning the distribution of the associated object kind in the observed record: If a "sufficient number" of objects of this type are found in a context, and their genesis can plausibly be assumed to fall within the genesis of the find context, then the statement made with this property would support reasoning, ceteris paribus , that the genesis period of the find context is likely to form part of the related instance of E4 Period, or at least overlap with it. “Sufficient number” means that the density of objects of this kind in the find context is compatible with the general density that this kind of object had during the associated period in contexts of a comparable nature and deposition history. A stronger claim can be made using AP30 restricted to while a weaker claim would use AP29 appears in .</rdfs:comment>
+    <rdfs:comment xml:lang="en">This property associates a kind of object (documented as an instance of E55 Type) with an instance of E4 Period indicating that objects of this kind have been generated in this period in significantly greater numbers and in wider distributions, than in other periods. This property makes a moderate statement concerning the distribution of the associated object kind in the observed record: If a "sufficient number" of objects of this type are found in a context, and their genesis can plausibly be assumed to fall within the genesis of the find context, then the statement made with this property would support reasoning, ceteris paribus , that the genesis period of the find context is likely to form part of the related instance of E4 Period, or at least overlap with it. “Sufficient number” means that the density of objects of this kind in the find context is compatible with the general density that this kind of object had during the associated period in contexts of a comparable nature and deposition history. A stronger claim can be made using AP30 restricted to (restricts appearance of) while a weaker claim would use AP29 appears in (has appearing type) .</rdfs:comment>
     <rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
     <rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E4_Period"/>
     <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/extensions/crmarchaeo/AP29_appears_in"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmarchaeo/AP31i_has_typical_type"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmarchaeo/AP31i_has_typical_type">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">has typical type</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E4_Period"/>
+    <rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/extensions/crmarchaeo/AP29i_has_appearing_type"/>
+    <owl:inverseOf rdf:resource="http://www.cidoc-crm.org/extensions/crmarchaeo/AP31_typical_for"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmarchaeo/AP32_discarded_into">
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
@@ -558,11 +586,5 @@ CC BY 4.0 https://creativecommons.org/licenses/by/4.0/legalcode
   </rdf:Description>
   <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmsci/O7i_is_confined_by">
     <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/extensions/crmarchaeo/AP12i_is_confined_by"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmsci/O18_altered">
-    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/extensions/crmarchaeo/AP8_disturbed"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.cidoc-crm.org/extensions/crmsci/O18i_was_altered_by">
-    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/extensions/crmarchaeo/AP8i_was_disturbed_by"/>
   </rdf:Description>
 </rdf:RDF>
